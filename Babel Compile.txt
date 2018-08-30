@@ -1,0 +1,12 @@
+Babel Compile1) babel src/app.js --out-file=public/scripts/app.js --presets=env,reactOr babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+#### To run live server 
+live-server $FolderName
+
+
+#### In addition
+yarn init
+
+####
+yarn add babel-preset-react@6.24.1#### Reinstall dependencies
+yarn install

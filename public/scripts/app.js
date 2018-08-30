@@ -10,12 +10,14 @@ console.log('App.js is running!');
 // ternary 
 
 
-var app = {
+const app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of a computer',
   options: ['One', 'Two']
   // JSX - JavaScript XML
-};var template = React.createElement(
+};
+
+const template = React.createElement(
   'div',
   null,
   React.createElement(
@@ -49,7 +51,7 @@ var app = {
   )
 );
 
-var user = {
+const user = {
   name: 'Kevin Green',
   age: 18,
   location: 'Illinois'
@@ -68,7 +70,7 @@ function getLocation(location) {
   }
 }
 
-var templateTwo = React.createElement(
+const templateTwo = React.createElement(
   'div',
   null,
   React.createElement(
@@ -85,5 +87,5 @@ var templateTwo = React.createElement(
   getLocation(user.location)
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 ReactDOM.render(template, appRoot);
