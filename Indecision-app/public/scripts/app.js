@@ -2,22 +2,12 @@
 
 console.log('App.js is running!');
 
-// only render the subtitle and the p tag 
-// subtitle exists logican and operator
-
-//Render new p tag if options.length > 
-// 0 "Here are your options" || "No option"
-// ternary 
-
-
-const app = {
+var app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of a computer',
   options: ['One', 'Two']
   // JSX - JavaScript XML
-};
-
-const template = React.createElement(
+};var template = React.createElement(
   'div',
   null,
   React.createElement(
@@ -50,42 +40,54 @@ const template = React.createElement(
     )
   )
 );
-
-const user = {
-  name: 'Kevin Green',
-  age: 18,
-  location: 'Illinois'
+// Counter
+var count = 0;
+var addOne = function addOne() {
+  count++;
+  renderCountApp();
 };
 
-function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
+var minusOne = function minusOne() {
+  count--;
+  renderCountApp();
+};
+
+var reset = function reset() {
+  count = 0;
+  renderCountApp();
+};
+
+var appRoot = document.getElementById('app');
+
+var renderCountApp = function renderCountApp() {
+
+  var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h1',
       null,
-      'Location: ',
-      location
-    );
-  } else {
-    return 'Unknown';
-  }
-}
+      'Count: ',
+      count
+    ),
+    React.createElement(
+      'button',
+      { onClick: addOne },
+      '+1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: minusOne },
+      '-1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: reset },
+      'Reset'
+    )
+  );
 
-const templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    true ? user.name : 'Anonymous'
-  ),
-  user.age && user.age >= 18 && React.createElement(
-    'p',
-    null,
-    'Age: ',
-    user.age
-  ),
-  getLocation(user.location)
-);
+  ReactDOM.render(templateTwo, appRoot);
+};
 
-const appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+renderCountApp();

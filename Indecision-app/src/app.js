@@ -1,20 +1,12 @@
 console.log('App.js is running!');
 
-// only render the subtitle and the p tag 
-// subtitle exists logican and operator
-
-//Render new p tag if options.length > 
-// 0 "Here are your options" || "No option"
-// ternary 
-
-
-var app = {
+const app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of a computer',
   options: ['One','Two']
 }
 // JSX - JavaScript XML
-var template = (
+const template = (
   <div>
     <h1>{(app.title) && app.title}</h1>
     {app.subtitle && <p>{app.subtitle}</p>}
@@ -25,30 +17,40 @@ var template = (
     </ol>
   </div>
 );
-
-var user = {
-  name: 'Kevin Green',
-  age: 18,
-  location: 'Illinois'
+// Counter
+let count = 0;
+const addOne = () => { 
+  count++;
+  renderCountApp();
 };
 
-function getLocation(location) {
-  if (location) {
-    return <p>Location: {location}</p>;
-  }
-  else {
-    return 'Unknown';
-  }
+const minusOne = () => {
+  count--;
+  renderCountApp();
+};
 
-}
+const reset = () => {
+  count = 0;
+  renderCountApp();
+};
 
-var templateTwo = (
+const appRoot = document.getElementById('app');
+
+const renderCountApp = () => {
+
+  const templateTwo = (
   <div>
-    <h1>{true ? user.name : 'Anonymous'}</h1>
-    {(user.age && user.age >=18) && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>Reset</button>
   </div>
-);
+  );
 
-var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCountApp();
+
+
+
